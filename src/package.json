@@ -1,0 +1,15 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "Final Project for ivis spring 2020",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "author": "Audrey Baxter; Stephanie Davis",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  },
+  "devDependencies": {}
+}
