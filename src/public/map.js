@@ -59,7 +59,7 @@ infoControl.update = function (name) {
         this._div.innerHTML = `<p><b>${props.name ? props.name : "About"}</b></p>`
         + `<p>Address: ${props.address ? props.address : "Unknown"}</p>`
         + `<p>Contact: ${props.contact ? props.contact : "Unknown"}</p>`
-        + `<p>Accepts: ${props.accepts ? props.materials : "Unknown"}</p>`;
+        + `<p>Borough: ${props.Borough ? props.Borough : "Unknown"}</p>`;
         // ! $(".leaflet-popup").focusout(infoControl.hide); // BROKEN; infoContro.hide.this is undefined
     } else {
         this.hide();
