@@ -26,7 +26,7 @@ var tiles = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{y}.png?
 var marker = new L.Icon({
     iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
     shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-    iconSize:     [18, 55],
+    iconSize:     [38, 95],
     shadowSize:   [50, 64],
     iconAnchor:   [22, 94],
     shadowAnchor: [4, 62],
