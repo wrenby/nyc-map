@@ -86,7 +86,7 @@ function onEachFeature(feature, layer) {
     }
 }
 
-$.getJSON("data/test.geojson", function(data) {
+$.getJSON("data/textile.geojson", function(data) {
     let geo = L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
             return L.marker(latlng, {icon: marker});
