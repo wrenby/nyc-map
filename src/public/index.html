@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -32,6 +33,16 @@
             font-style: italic;
             color: #AAA;
         }
+
+        .sidebar-header{
+          font-variant: small-caps;
+          font-size: 30px;
+          background-color: #88c125;
+        }
+
+        i {
+          color: black;
+        }
     </style>
   </head>
   <body>
@@ -44,9 +55,11 @@
         <div class="sidebar-tabs">
             <ul role="tablist">
                 <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
-                <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
-                <li><a href="https://github.com/Turbo87/sidebar-v2" role="tab" target="_blank"><i class="fa fa-github"></i></a></li>
+                <li><a href="#bins" role="tab"><i class="fa fa-recycle"></i></a></li>
+                <li><a href="#textile" role="tab"><i class="fas fa-tshirt"></i></a></li>
+                <li><a href="#food" role="tab"><i class="fas fa-drumstick-bite"></i></a></li>
+                <li><a href="#leaf" role="tab"><i class="fa fa-leaf"></i></a></li>
+                <li><a href="#electronics" role="tab"><i class="fa fa-microchip"></i></a></li>
             </ul>
 
             <ul role="tablist">
@@ -58,11 +71,11 @@
         <div class="sidebar-content">
             <div class="sidebar-pane" id="home">
                 <h1 class="sidebar-header">
-                    sidebar-v2
+                    GreenMap [WT]
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
 
-                <p>A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.</p>
+                <p>A simple tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
 
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
@@ -73,12 +86,24 @@
                 <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
             </div>
 
-            <div class="sidebar-pane" id="profile">
-                <h1 class="sidebar-header">Profile<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <div class="sidebar-pane" id="bins">
+                <h1 class="sidebar-header">Public Recycling Bins<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
             </div>
 
-            <div class="sidebar-pane" id="messages">
-                <h1 class="sidebar-header">Messages<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <div class="sidebar-pane" id="textile">
+                <h1 class="sidebar-header">Textile Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="food">
+                <h1 class="sidebar-header">Food Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="leaf">
+                <h1 class="sidebar-header">Leaf Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+
+            <div class="sidebar-pane" id="electronics">
+                <h1 class="sidebar-header">Electronics Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
             </div>
 
             <div class="sidebar-pane" id="settings">
@@ -87,15 +112,15 @@
         </div>
     </div>
 
-    <!---->
 
 
-    <div id="map" class="sidebar-map"></div>
 
-    <a href="https://github.com/Turbo87/sidebar-v2/"><img style="position: fixed; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+  <div id="map" class="sidebar-map"></div>
 
    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
    <script src="leaflet-sidebar.js"></script>
+
+     <!---->
 
     <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
     <script src="map.js?v=6"></script>
