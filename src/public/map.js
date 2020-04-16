@@ -33,6 +33,8 @@ var marker = new L.Icon({
     popupAnchor:  [-3, -76]
 })
 
+var sidebar = L.control.sidebar('sidebar').addTo(map);
+
 // Create a UI element that shows information upon clicking the "Show More" link
 let info = new Map();
 var infoControl = L.control({position:'topright'});
@@ -58,7 +60,7 @@ infoControl.update = function (name) {
         this.show();
         this._div.innerHTML = `<p><b>${props.name ? props.name : "About"}</b></p>`
         + `<p>Address: ${props.address ? props.address : "Unknown"}</p>`
-        + `<p>Contact: ${props.contact ? props.contact : "Unknown"}</p>`
+        // + `<p>Contact: ${props.contact ? props.contact : "Unknown"}</p>`
         + `<p>Borough: ${props.Borough ? props.Borough : "Unknown"}</p>`;
         // ! $(".leaflet-popup").focusout(infoControl.hide); // BROKEN; infoContro.hide.this is undefined
     } else {
@@ -86,7 +88,7 @@ function onEachFeature(feature, layer) {
     }
 }
 
-$.getJSON("data/test.geojson", function(data) {
+$.getJSON("data/textile.geojson", function(data) {
     let geo = L.geoJSON(data, {
         pointToLayer: function(feature, latlng) {
             return L.marker(latlng, {icon: marker});

@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
@@ -17,10 +24,328 @@
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="leaflet-sidebar.css" />
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        h4, p {
+          padding: 5px;
+        }
+
+        .logo {
+          padding: 10px;
+        }
+
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+
+        .sidebar-header{
+          font-size: 30px 30px 30px 30px;
+          background-color: #88c125;
+          padding: 10px;
+        }
+
+        i {
+          color: black;
+          padding: 5px;
+        }
+    </style>
   </head>
   <body>
-    <div id="map"></div>
-    <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>, Data by <a href="https://opendata.cityofnewyork.us">NYC OpenData</a><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a></p>
-    <script src="map.js"></script>
+
+    <!-- Created with code from sidebar-v2 plugin-->
+    <!-- source: https://github.com/Turbo87/sidebar-v2-->
+    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <div class="sidebar-tabs">
+            <ul role="tablist">
+                <li><a href="#home" role="tab" data-toggle="tooltip" data-placement="right" title="Menu"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#bins" role="tab" data-toggle="tooltip" data-placement="right" title="Public Recycling Bins"><i class="fa fa-recycle"></i></a></li>
+                <li><a href="#textile" role="tab" data-toggle="tooltip" data-placement="right" title="Textiles"><i class="fas fa-tshirt"></i></a></li>
+                <li><a href="#food" role="tab" data-toggle="tooltip" data-placement="right" title="Food Scraps and Waste"><i class="fas fa-drumstick-bite"></i></a></li>
+                <li><a href="#leaf" role="tab" data-toggle="tooltip" data-placement="right" title="Leaves and Yard Waste"><i class="fa fa-leaf"></i></a></li>
+                <li><a href="#electronics" role="tab" data-toggle="tooltip" data-placement="right" title="Electronics"><i class="fa fa-microchip"></i></a></li>
+            </ul>
+
+            <ul role="tablist">
+                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">
+                    GreenMap [WT]
+                    <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
+                </h1>
+
+                <p>A simple tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
+
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <div class="sidebar-pane" id="bins">
+                <h1 class="sidebar-header">Public Recycling Bins<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                <p class="lorem"><i class="fas fa-exclamation-triangle"></i> Please empty and rinse metal, glass, plastic and cartons containing food before recycling.</p>
+
+                <h1>What to Recycle</h1>
+
+                <h2>Metal</h2>
+                <ul class="lorem">
+                  <li>metal cans (soup, pet food, empty aerosol cans, empty paint cans, etc.)</li>
+                  <li>aluminum foil and foil products (wrap and trays)</li>
+                  <li>metal caps and lids</li>
+                  <li>household metal items (wire hangers, pots, tools, curtain rods, small appliances that are mostly metal, certain vehicle license plates, etc.)</li>
+                  <li>bulky metal items (large metal items, such as furniture, cabinets, large mostly metal appliances, DOES NOT INCLUDE electronic devices banned from disposal)</li>
+                </ul>
+
+                <h2>Glass</h2>
+                <ul class="lorem">
+                  <li>glass bottles and jars</li>
+                </ul>
+
+                <h2>Plastic (rigid plastics)</h2>
+                <p class="lorem"><i class="fas fa-exclamation-triangle"></i>Rigid plastic is any item that is mostly
+                  plastic resin—it is relatively inflexible and maintains its shape or form when bent.</p>
+                <ul class="lorem">
+                  <li>plastic bottles, jugs, and jars</li>
+                  <li>rigid plastic caps and lids</li>
+                  <li>rigid plastic food containers (yogurt, deli, hummus, dairy tubs, cookie tray inserts, “clamshell” containers, other rigid plastic take-out containers)</li>
+                  <li>rigid plastic non-food containers (such as “blister-pack” and “clamshell” consumer packaging, acetate boxes)</li>
+                  <li>rigid plastic housewares (flower pots, mixing bowls, plastic appliances, etc.)</li>
+                  <li>bulk rigid plastic (crates, buckets, pails, furniture, large toys, large appliances, etc.)</li>
+                </ul>
+
+
+                <h2>Cartons</h2>
+                <ul class="lorem">
+                  <li>Food and beverage cartons</li>
+                  <li>Drink boxes</li>
+                  <li>Aseptic packaging (holds beverages and food: juice, milk and non-dairy milk products, soup, etc.)</li>
+                </ul>
+
+
+                <h2>Paper</h2>
+                <ul class="lorem">
+                  <li>newspapers, magazines, catalogs, phone books, mixed paper</li>
+                  <li>white and colored paper (lined, copier, computer; staples are ok)</li>
+                  <li>mail and envelopes (any color; window envelopes are ok)</li>
+                  <li>receipts</li>
+                  <li>paper bags (handles ok)</li>
+                  <li>wrapping paper</li>
+                  <li>soft-cover books (phone books, paperbacks, comics, etc.; no spiral bindings) (schools should follow their school  book recycling procedures)</li>
+                </ul>
+
+                <h2>Cardboard</h2>
+                <ul class="lorem">
+                  <li>cardboard egg cartons</li>
+                  <li>cardboard trays</li>
+                  <li>smooth cardboard (food and shoe boxes, tubes, file folders, cardboard from product packaging)</li>
+                  <li>pizza boxes (remove and discard soiled liner; recycle little plastic supporter with rigid plastics)</li>
+                  <li>paper cups (waxy lining ok if cups are empty and clean; recycle plastic lids with rigid plastics)</li>
+                  <li>corrugated cardboard boxes (flattened and tied together with sturdy twine)</li>
+                </ul>
+
+
+                <h1>What Not to Recycle</h1>
+
+                <ul class="lorem">
+                  <li>Paper with heavy wax or plastic coating (candy wrappers, take-out and freezer containers, etc.)</li>
+                  <li>Soiled or soft paper (napkins, paper towels, tissues)</li>
+                  <li>Hardcover books (schools should follow their school  book recycling procedures)</li>
+                  <li>Batteries</li>
+                  <li>Electronic devices banned from disposal</li>
+                  <li>Printer cartridges</li>
+                  <li>Glass items other than glass bottles and jars (such as mirrors, light bulbs, ceramics, and glassware)</li>
+                  <li>Window blinds</li>
+                  <li>Foam plastic items (such as foam food service containers, cups and trays, foam protective packing blocks, and, and foam packing peanuts)</li>
+                  <li>Flexible plastic items (such as single-serve food and drink squeezable pouches and tubes such as toothpaste, lotion, cosmetics, or sports balls such as basketballs, bowling balls, soccer balls, footballs, yoga balls)</li>
+                  <li>Film plastic (such as plastic shopping bags and wrappers.) Bring plastic bags and film to participating stores for recycling</li>
+                  <li>Cigarette lighters and butane gas lighters</li>
+                  <li>Cassette and VHS tapes</li>
+                  <li>CDs and DVDs</li>
+                  <li>Pens and markers</li>
+                  <li>“Tanglers” (such as cables, wires, cords, hoses)</li>
+                  <li>Rigid plastic containers containing medical “sharps” or disposable razors</li>
+                  <li>Containers that held dangerous or corrosive chemicals</li>
+                </ul>
+
+
+                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                  New York City Department of Sanitation</a></p>
+
+            </div>
+
+            <div class="sidebar-pane" id="textile">
+                <h1 class="sidebar-header">Textile Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                  <p class="lorem">New Yorkers throw out 200,000 tons of clothing and textiles every year. Instead of throwing your textiles away,
+                    donate or recycle them, which helps keep New York clean and fashionable.</p>
+
+                  <h2>Accepted Items</h1>
+                  <p class="lorem"><i class="fas fa-exclamation-triangle"></i>Certain drop-offs only accept specific items or their own branded
+                    merchandise. Call ahead to ensure your materials will be accepted.</p>
+                  <ul class="lorem">
+                    <li>Clothing</li>
+                    <li>Shoes</li>
+                    <li>Coats</li>
+                    <li>Accessories (scarves, purses, etc.)</li>
+                    <li>Bedding</li>
+                    <li>Linens and Curtains</li>
+                    <li>Towels</li>
+                    <li>Rugs</li>
+                  </ul>
+
+                  <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                    New York City Department of Sanitation</a></p>
+
+            </div>
+
+            <div class="sidebar-pane" id="food">
+                <h1 class="sidebar-header">Food Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                <p class="lorem">Drop-off composting is one-way NYC residents can divert their food and yard waste from being
+                  sent to a landfill. Bring your food scraps to any one of the drop-off sites located below to make sure
+                  you are creating a resource (compost and clean energy) instead of creating waste.</p>
+
+                <h2>Accepted Items (All Sites)</h1>
+                <ul class="lorem">
+                  <li>Fruits, Vegetables and Eggshells</li>
+                  <li>Coffee, Tea and Nuts</li>
+                  <li>Dried Flowers and Houseplants</li>
+                </ul>
+
+                <h2>Accepted Items (Some Sites)</h1>
+                <ul class="lorem">
+                  <li>Rice, Pasta, Bread, and Grains</li>
+                  <li>Meat, Fish, and Dairy</li>
+                  <li>BPI-certified compostable plastic products</li>
+                </ul>
+
+                <h2>Not Accepted</h1>
+                <ul class="lorem">
+                  <li>Pet Waste and Kitty Litter</li>
+                  <li>Pressure-treated Plywood, Lumber, or Sawdust</li>
+                  <li>Clean Paper, Glossy Paper, or Cardboard</li>
+                  <li>Metal, Glass or Plastic</li>
+                  <li>Medical Waste, Diapers, and Personal Hygiene Products</li>
+                </ul>
+
+
+                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                  New York City Department of Sanitation</a></p>
+
+            </div>
+
+            <div class="sidebar-pane" id="leaf">
+                <h1 class="sidebar-header">Leaf Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                <p class="lorem">Leaves can be turned into compost to revitalize our soil.</p>
+
+                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                  New York City Department of Sanitation</a></p>
+
+            </div>
+
+            <div class="sidebar-pane" id="electronics">
+                <h1 class="sidebar-header">Electronics Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                <p class="lorem">It’s illegal to include electronic devices with trash or recycling. Instead,
+                  our programs help you dispose of them legally and safely.</p>
+
+                <p class="lorem"><i class="fas fa-exclamation-triangle"></i>Under New York State law, disposing of the below
+                  items with recyclables or trash is subject to a $100 fine.</p>
+
+                <ul class="lorem">
+                  <li>Televisions (including cathode ray tubes)</li>
+                  <li>Computer peripherals, including any permanently attached cable or wiring</li>
+                  <li>Monitors, laptops</li>
+                  <li>Electronic keyboards</li>
+                  <li>Electronic mice and other pointing devices</li>
+                  <li>Fax machines, document scanners, and printers that are meant for use with a computer
+                    and weigh less than 100 lbs.</li>
+                  <li>TV peripherals, including any permanently attached cable or wiring</li>
+                  <li>VCRs</li>
+                  <li>Digital video recorders</li>
+                  <li>DVD players</li>
+                  <li>Digital converter boxes</li>
+                  <li>Cable or satellite receivers</li>
+                  <li>Electronic or video game consoles</li>
+                  <li>Small-scale servers</li>
+                  <li>Portable devices, including any permanently attached cable or wiring</li>
+                  <li>Portable digital music players</li>
+                </ul>
+
+                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                  New York City Department of Sanitation</a></p>
+
+            </div>
+
+            <div class="sidebar-pane" id="settings">
+                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            </div>
+        </div>
+    </div>
+    <!---->
+
+    <!-- Pop Up Introduction -->
+    <div class="container">
+      <h2>Small Modal</h2>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+
+      <!-- Pop Up Tutorial: https://www.w3schools.com/bootstrap4/bootstrap_modal.asp -->
+      <div class="modal fade" id="intro" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">Introduction</h1>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <h4>What is GreenMap?</h4>
+              <p>The goal of this geographical visualization is to give working adults
+                living in, or around, the New York City Metropolitan Area a way to increase
+                their environmental awareness by providing a simple and intuitive tool which
+                allows users to locate recycling bins, composting and drop-off sites, and
+                eco-friendly retailers in their area from data provided by the New York City
+                Department of Sanitation.</p>
+                <img id="logo" src="DSNY_logo_2016.jpg" class="mx-auto d-block" style="width:30%">
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+
+
+  <div id="map" class="sidebar-map"></div>
+
+    <script src="features.js?v=2"></script>
+    <script src="leaflet-sidebar.js"></script>
+
+     <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>, Data by <a href="https://opendata.cityofnewyork.us">NYC OpenData</a></p>
+     <script src="map.js?v=6"></script>
   </body>
 </html>
