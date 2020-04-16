@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -13,7 +18,7 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script> -->
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="leaflet-sidebar.css" />
@@ -27,6 +32,14 @@
         html, body, #map {
             height: 100%;
             font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        h4, p {
+          padding: 5px;
+        }
+
+        .logo {
+          padding: 10px;
         }
 
         .lorem {
@@ -50,17 +63,16 @@
 
     <!-- Created with code from sidebar-v2 plugin-->
     <!-- source: https://github.com/Turbo87/sidebar-v2-->
-
     <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
-                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
-                <li><a href="#bins" role="tab"><i class="fa fa-recycle"></i></a></li>
-                <li><a href="#textile" role="tab"><i class="fas fa-tshirt"></i></a></li>
-                <li><a href="#food" role="tab"><i class="fas fa-drumstick-bite"></i></a></li>
-                <li><a href="#leaf" role="tab"><i class="fa fa-leaf"></i></a></li>
-                <li><a href="#electronics" role="tab"><i class="fa fa-microchip"></i></a></li>
+                <li><a href="#home" role="tab" data-toggle="tooltip" data-placement="right" title="Menu"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#bins" role="tab" data-toggle="tooltip" data-placement="right" title="Public Recycling Bins"><i class="fa fa-recycle"></i></a></li>
+                <li><a href="#textile" role="tab" data-toggle="tooltip" data-placement="right" title="Textiles"><i class="fas fa-tshirt"></i></a></li>
+                <li><a href="#food" role="tab" data-toggle="tooltip" data-placement="right" title="Food Scraps and Waste"><i class="fas fa-drumstick-bite"></i></a></li>
+                <li><a href="#leaf" role="tab" data-toggle="tooltip" data-placement="right" title="Leaves and Yard Waste"><i class="fa fa-leaf"></i></a></li>
+                <li><a href="#electronics" role="tab" data-toggle="tooltip" data-placement="right" title="Electronics"><i class="fa fa-microchip"></i></a></li>
             </ul>
 
             <ul role="tablist">
@@ -290,12 +302,44 @@
             </div>
         </div>
     </div>
+    <!---->
 
+    <!-- Pop Up Introduction -->
+    <div class="container">
+      <h2>Small Modal</h2>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
 
+      <!-- Pop Up Tutorial: https://www.w3schools.com/bootstrap4/bootstrap_modal.asp -->
+      <div class="modal fade" id="intro" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title">Introduction</h1>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <h4>What is GreenMap?</h4>
+              <p>The goal of this geographical visualization is to give working adults
+                living in, or around, the New York City Metropolitan Area a way to increase
+                their environmental awareness by providing a simple and intuitive tool which
+                allows users to locate recycling bins, composting and drop-off sites, and
+                eco-friendly retailers in their area from data provided by the New York City
+                Department of Sanitation.</p>
+                <img id="logo" src="DSNY_logo_2016.jpg" class="mx-auto d-block" style="width:30%">
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
 
 
   <div id="map" class="sidebar-map"></div>
 
+    <script src="features.js?v=2"></script>
    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
    <script src="leaflet-sidebar.js"></script>
 
