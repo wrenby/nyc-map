@@ -21,3 +21,8 @@ Long term
 ---
 
 Automate data updates
+
+Filtering layers feels unresponsive
+ - Partially a design flaw in Leaflet: https://github.com/Leaflet/Leaflet/issues/4277
+ - Panes are supposed to solve this problem but I can't get them working
+   - Even if I could, it might make map navigation less responsive in turn and I'd have to give up marker shadows
