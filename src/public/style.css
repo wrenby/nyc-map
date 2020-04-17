@@ -6,17 +6,32 @@
     left: 0;
 }
 
-.info
+.guide
 {
-	padding: 6px 8px;
-	font: 14px/16px Arial, Helvetica, sans-serif;
-	background: white; 
-	background: rgba(255,255,255,0.8); 
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 25%;
+	height: 25%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	z-index: 1000;
+    pointer-events: none;
+	text-align: center;
+	font: 28px/32px Arial, Helvetica, sans-serif;
+	background: white;
+	background: rgba(255,255,255,0.8);
 	box-shadow: 0 0 15px rgba(0,0,0,0.2); 
-	border-radius: 5px; 
+	border-radius: 10px;
 } 
-.info p
-{ 
+.guide p
+{
 	margin: 0 0 5px;
-	color: #777; 
+	color: #777;
 }

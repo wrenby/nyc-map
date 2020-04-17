@@ -14,7 +14,7 @@ let map = L.map(
         maxBounds: [[40.49709237269567, -74.58274841308595], [40.99389273551914, -73.26438903808595]],
     }
 ).setView([40.72397393626433, -73.95137786865236], 12);
-map.zoomControl.setPosition('bottomright');
+map.zoomControl.setPosition('topright');
 
 let tiles = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{y}.png?key=DPuhSkOb2lMfsIEVGlAZ',{
     tileSize: 512,
@@ -38,47 +38,9 @@ let marker = new L.Icon({
     iconAnchor:   [22, 94],
     shadowAnchor: [4, 62],
     popupAnchor:  [-3, -76]
-})
+});
 
 let sidebar = L.control.sidebar('sidebar').addTo(map);
-
-// Create a UI element that shows information upon clicking the "Show More" link
-// TODO: right now I don't think we have enough data to justify a second-tier popup
-// let info = new Map();
-// let infoControl = L.control({position:'topright'});
-
-// infoControl.onAdd = function (_map) {
-// 	this._div = L.DomUtil.create('div', 'info');
-// 	this.hide();
-// 	return this._div;
-// };
-
-// // TODO: call when the popup is defocused or closed; currently no way to hide this
-// infoControl.hide = function () {
-//     this._div.style = "display: none";
-// }
-
-// infoControl.show = function () {
-//     this._div.style = "display: unset";
-// }
-
-// infoControl.update = function (name) {
-//     let props = info.get(name);
-//     if (props) {
-//         this.show();
-//         this._div.innerHTML = `<p><b>${props.name ? props.name : "About"}</b></p>`
-//         + `<p>Address: ${props.address ? props.address : "Unknown"}</p>`
-//         // + `<p>Contact: ${props.contact ? props.contact : "Unknown"}</p>`
-//         + `<p>Borough: ${props.Borough ? props.Borough : "Unknown"}</p>`;
-//         $(".leaflet-popup").focusout(infoControl.hide).bind(this); // BROKEN; infoContro.hide.this is undefined
-//     } else {
-//         this.hide();
-//     }
-// };
-// infoControl.addTo(map);
-
-// ! this should be phased out in favor of a more accurate and usable search feature
-let controlLayers = L.control.layers().addTo(map);
 
 /// GeoJSON stuff
 
@@ -92,22 +54,23 @@ function onEachFeature(label, feature, layer) {
             // + `<p>Contact: ${props.contact ? props.contact : "Unknown"}</p>`
             + `<br />Borough: ${props.Borough ? props.Borough : "Unknown"}</p>`;
 
-            // TODO: use some kind of unique identifier instead of name -- this leads to conflicts for recycling bins with several 
+            // TODO: use some kind of unique identifier instead of name -- this leads to conflicts for recycling bins with several
+            // see https://gis.stackexchange.com/a/61202
             //+ `<p><a class="showmore" href="#details" onclick="infoControl.update('${feature.properties.name}')">Show More</a></p>`;
         layer.bindPopup(popupContent);
     }
 }
 
-let files = new Map();
+let datasets = new Map();
 let layers = new Map();
-files.set("Public Recycling Bins", "data/bins.geojson");
-files.set("Textile Drop-Off", "data/textile.geojson");
-files.set("Food Drop-Off", "data/food.geojson");
-files.set("Leaf Drop-Off", "data/leaf.geojson");
-files.set("Electronics Drop-Off", "data/electronics.geojson");
+datasets.set("bins", "Public Recycling Bins");
+datasets.set("textile", "Textile Drop-Off");
+datasets.set("food", "Food Drop-Off");
+datasets.set("leaf", "Leaf Drop-Off");
+datasets.set("electronics", "Electronics Drop-Off");
 
-for (const [label, file] of files.entries()) {
-    $.getJSON(file, function(json) {
+for (const [ugly, pretty] of datasets.entries()) {
+    $.getJSON(`data/${ugly}.geojson`, function(json) {
         let layer = L.geoJSON(json, {
             pointToLayer: function(feature, latlng) {
                 // TODO: would be nice if we had bounding boxes in addition to lat/lng... probably possible to get with OSM API, but not a priority
@@ -117,14 +80,55 @@ for (const [label, file] of files.entries()) {
                     console.error(`ERROR: unsupported feature geometry ${feature.geometry.type} on item ${feature.properties}`);
                 }
             },
-            onEachFeature: onEachFeature.bindArgs(label)
-        }).addTo(map);
+            onEachFeature: onEachFeature.bindArgs(pretty)
+        });
+        layers.set(ugly, layer);
+    });
+}
 
-        // wait for all layers to be loaded for a dependable ordering in the layer control
-        if (layers.set(label, layer).size == files.size) {
-            for (const [label, layer] of layers.entries()) {
-                controlLayers.addOverlay(layer, label);
-            }
+// Popup explaining why none of the data is visible onload
+L.Control.Guide = L.Control.extend({
+    onAdd: function (map) {
+        this._map = map;
+        this._div = L.DomUtil.create('div', 'guide');
+        this._div.innerHTML = "<p><b>To begin,</b><br /><br />click one of the icons in the sidebar (left)</p>";
+        return this._div;
+    },
+    addTo: function (map) {
+        this._div = this.onAdd(map);
+        map.getContainer().appendChild(this._div);
+        return this;
+    },
+    hide: function () {
+        this._div.style.display = "none";
+        return this;
+    },
+    show: function () {
+        this._div.style.display = "block";
+        return this;
+    }
+});
+
+L.control.guide = function (options) {
+    return new L.Control.Guide(options);
+}
+
+let guide = L.control.guide().addTo(map);
+
+// Layer visibility controlled through the sidebar now
+let activeLayer = null;
+function selectLayer(ugly) {
+    if (activeLayer != ugly) {
+        if (activeLayer) {
+            map.removeLayer(layers.get(activeLayer));
         }
+        map.addLayer(layers.get(ugly));
+        activeLayer = ugly;
+        guide.hide();
+    }
+}
+for (const ugly of datasets.keys()) {
+    $(`#${ugly}`).click(() => {
+        selectLayer(ugly);
     });
 }
