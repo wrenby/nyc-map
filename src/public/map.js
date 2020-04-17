@@ -32,11 +32,8 @@ let tiles = L.tileLayer('https://api.maptiler.com/maps/positron/{z}/{x}/{y}.png?
 // leaf icon
 let marker = new L.Icon({
     iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
-    shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
     iconSize:     [38, 95],
-    shadowSize:   [50, 64],
     iconAnchor:   [22, 94],
-    shadowAnchor: [4, 62],
     popupAnchor:  [-3, -76]
 });
 
@@ -62,7 +59,7 @@ function onEachFeature(label, feature, layer) {
 }
 
 let datasets = new Map();
-let layers = new Map();
+let panes = new Map();
 datasets.set("bins", "Public Recycling Bins");
 datasets.set("textile", "Textile Drop-Off");
 datasets.set("food", "Food Drop-Off");
@@ -71,18 +68,20 @@ datasets.set("electronics", "Electronics Drop-Off");
 
 for (const [ugly, pretty] of datasets.entries()) {
     $.getJSON(`data/${ugly}.geojson`, function(json) {
-        let layer = L.geoJSON(json, {
+        let layerPane = map.createPane(ugly);
+        L.geoJSON(json, {
             pointToLayer: function(feature, latlng) {
                 // TODO: would be nice if we had bounding boxes in addition to lat/lng... probably possible to get with OSM API, but not a priority
                 if (feature.geometry.type == "Point") {
-                    return L.marker(latlng, {icon: marker});
+                    return L.marker(latlng, { icon: marker });
                 } else {
                     console.error(`ERROR: unsupported feature geometry ${feature.geometry.type} on item ${feature.properties}`);
                 }
             },
-            onEachFeature: onEachFeature.bindArgs(pretty)
+            onEachFeature: onEachFeature.bindArgs(pretty),
+            pane: ugly
         });
-        layers.set(ugly, layer);
+        panes.set(ugly, layerPane);
     });
 }
 
@@ -120,9 +119,9 @@ let activeLayer = null;
 function selectLayer(ugly) {
     if (activeLayer != ugly) {
         if (activeLayer) {
-            map.removeLayer(layers.get(activeLayer));
+            panes.get(activeLayer).style.display = "none";
         }
-        map.addLayer(layers.get(ugly));
+        panes.get(ugly).style.display = "unset";
         activeLayer = ugly;
         guide.hide();
     }
