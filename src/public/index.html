@@ -36,7 +36,7 @@
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="leaflet-sidebar.css" />
+    <link rel="stylesheet" href="leaflet-sidebar.css?v=2" />
 
     <style>
         body {
@@ -53,6 +53,19 @@
           padding: 5px;
         }
 
+        h1, h2 {
+          padding: 10px;
+        }
+
+        .dropdown-menu {
+          background-color: #88c125;
+        }
+
+        .tooltip > .tooltip-inner {
+          padding: 15px;
+          font-size: 15px;
+        }
+
         .logo {
           padding: 10px;
         }
@@ -62,11 +75,16 @@
             color: #AAA;
         }
 
-        .sidebar-header{
-          font-size: 30px 30px 30px 30px;
-          background-color: #88c125;
-          padding: 10px;
-        }
+        .sidebar-header {
+          margin: -10px -20px 20px;
+          height: 40px;
+          padding: 0 20px;
+          line-height: 40px;
+          font-size: 16pt;
+          color: #fff;
+          background-color: #88c125; }
+          .sidebar-right .sidebar-header {
+            padding-left: 40px; }
 
         i {
           color: black;
@@ -91,7 +109,7 @@
             </ul>
 
             <ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+                <li><a href="#help" role="tab"><i class="far fa-question-circle"></i></a></li>
             </ul>
         </div>
 
@@ -117,203 +135,486 @@
             <div class="sidebar-pane" id="bins">
                 <h1 class="sidebar-header">Public Recycling Bins<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
-                <p class="lorem"><i class="fas fa-exclamation-triangle"></i> Please empty and rinse metal, glass, plastic and cartons containing food before recycling.</p>
+                <div class="alert alert-warning alert-dismissible fade show" style="margin:20px;">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <p><i class="fas fa-exclamation-triangle"></i> <strong>Please empty and rinse metal, glass, plastic and cartons containing food before recycling.</strong></p>
+                </div>
 
-                <h1>What to Recycle</h1>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Settings</h4>
+                  </div>
 
-                <h2>Metal</h2>
-                <ul class="lorem">
-                  <li>metal cans (soup, pet food, empty aerosol cans, empty paint cans, etc.)</li>
-                  <li>aluminum foil and foil products (wrap and trays)</li>
-                  <li>metal caps and lids</li>
-                  <li>household metal items (wire hangers, pots, tools, curtain rods, small appliances that are mostly metal, certain vehicle license plates, etc.)</li>
-                  <li>bulky metal items (large metal items, such as furniture, cabinets, large mostly metal appliances, DOES NOT INCLUDE electronic devices banned from disposal)</li>
-                </ul>
+                  <div class="card-body">
 
-                <h2>Glass</h2>
-                <ul class="lorem">
-                  <li>glass bottles and jars</li>
-                </ul>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            Bins Near Me
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">0-5 Miles</a>
+                            <a class="dropdown-item" href="#">5-10 Miles</a>
+                            <a class="dropdown-item" href="#">10-20 Miles</a>
+                            <a class="dropdown-item" href="#">20+ Miles</a>
+                          </div>
+                        </div>
+                      </div>
 
-                <h2>Plastic (rigid plastics)</h2>
-                <p class="lorem"><i class="fas fa-exclamation-triangle"></i>Rigid plastic is any item that is mostly
-                  plastic resin—it is relatively inflexible and maintains its shape or form when bent.</p>
-                <ul class="lorem">
-                  <li>plastic bottles, jugs, and jars</li>
-                  <li>rigid plastic caps and lids</li>
-                  <li>rigid plastic food containers (yogurt, deli, hummus, dairy tubs, cookie tray inserts, “clamshell” containers, other rigid plastic take-out containers)</li>
-                  <li>rigid plastic non-food containers (such as “blister-pack” and “clamshell” consumer packaging, acetate boxes)</li>
-                  <li>rigid plastic housewares (flower pots, mixing bowls, plastic appliances, etc.)</li>
-                  <li>bulk rigid plastic (crates, buckets, pails, furniture, large toys, large appliances, etc.)</li>
-                </ul>
+                      <div class="p-2">
 
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search Bins" id="#">
+                        </div>
 
-                <h2>Cartons</h2>
-                <ul class="lorem">
-                  <li>Food and beverage cartons</li>
-                  <li>Drink boxes</li>
-                  <li>Aseptic packaging (holds beverages and food: juice, milk and non-dairy milk products, soup, etc.)</li>
-                </ul>
+                      </div>
+                    </div>
 
+                  </div>
 
-                <h2>Paper</h2>
-                <ul class="lorem">
-                  <li>newspapers, magazines, catalogs, phone books, mixed paper</li>
-                  <li>white and colored paper (lined, copier, computer; staples are ok)</li>
-                  <li>mail and envelopes (any color; window envelopes are ok)</li>
-                  <li>receipts</li>
-                  <li>paper bags (handles ok)</li>
-                  <li>wrapping paper</li>
-                  <li>soft-cover books (phone books, paperbacks, comics, etc.; no spiral bindings) (schools should follow their school  book recycling procedures)</li>
-                </ul>
-
-                <h2>Cardboard</h2>
-                <ul class="lorem">
-                  <li>cardboard egg cartons</li>
-                  <li>cardboard trays</li>
-                  <li>smooth cardboard (food and shoe boxes, tubes, file folders, cardboard from product packaging)</li>
-                  <li>pizza boxes (remove and discard soiled liner; recycle little plastic supporter with rigid plastics)</li>
-                  <li>paper cups (waxy lining ok if cups are empty and clean; recycle plastic lids with rigid plastics)</li>
-                  <li>corrugated cardboard boxes (flattened and tied together with sturdy twine)</li>
-                </ul>
+                </div>
 
 
-                <h1>What Not to Recycle</h1>
-
-                <ul class="lorem">
-                  <li>Paper with heavy wax or plastic coating (candy wrappers, take-out and freezer containers, etc.)</li>
-                  <li>Soiled or soft paper (napkins, paper towels, tissues)</li>
-                  <li>Hardcover books (schools should follow their school  book recycling procedures)</li>
-                  <li>Batteries</li>
-                  <li>Electronic devices banned from disposal</li>
-                  <li>Printer cartridges</li>
-                  <li>Glass items other than glass bottles and jars (such as mirrors, light bulbs, ceramics, and glassware)</li>
-                  <li>Window blinds</li>
-                  <li>Foam plastic items (such as foam food service containers, cups and trays, foam protective packing blocks, and, and foam packing peanuts)</li>
-                  <li>Flexible plastic items (such as single-serve food and drink squeezable pouches and tubes such as toothpaste, lotion, cosmetics, or sports balls such as basketballs, bowling balls, soccer balls, footballs, yoga balls)</li>
-                  <li>Film plastic (such as plastic shopping bags and wrappers.) Bring plastic bags and film to participating stores for recycling</li>
-                  <li>Cigarette lighters and butane gas lighters</li>
-                  <li>Cassette and VHS tapes</li>
-                  <li>CDs and DVDs</li>
-                  <li>Pens and markers</li>
-                  <li>“Tanglers” (such as cables, wires, cords, hoses)</li>
-                  <li>Rigid plastic containers containing medical “sharps” or disposable razors</li>
-                  <li>Containers that held dangerous or corrosive chemicals</li>
-                </ul>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h1>What to Recycle</h1>
+                  </div>
 
 
-                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
-                  New York City Department of Sanitation</a></p>
+                  <div class="card-header">
+                    <h2>Metal</h2>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>metal cans (soup, pet food, empty aerosol cans, empty paint cans, etc.)</li>
+                    <li>aluminum foil and foil products (wrap and trays)</li>
+                    <li>metal caps and lids</li>
+                    <li>household metal items (wire hangers, pots, tools, curtain rods, small appliances that are mostly metal, certain vehicle license plates, etc.)</li>
+                    <li>bulky metal items (large metal items, such as furniture, cabinets, large mostly metal appliances, DOES NOT INCLUDE electronic devices banned from disposal)</li>
+                  </ul>
+
+                  <div class="card-header">
+                    <h2>Glass</h2>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>glass bottles and jars</li>
+                  </ul>
+
+
+
+                  <div class="card-header">
+                    <h2>Plastic (rigid plastics)</h2>
+                  </div>
+
+                  <div class="alert alert-warning alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Rigid plastic is any item that is mostly
+                      plastic resin—it is relatively inflexible and maintains its shape or form when bent.</strong></p>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>plastic bottles, jugs, and jars</li>
+                    <li>rigid plastic caps and lids</li>
+                    <li>rigid plastic food containers (yogurt, deli, hummus, dairy tubs, cookie tray inserts, “clamshell” containers, other rigid plastic take-out containers)</li>
+                    <li>rigid plastic non-food containers (such as “blister-pack” and “clamshell” consumer packaging, acetate boxes)</li>
+                    <li>rigid plastic housewares (flower pots, mixing bowls, plastic appliances, etc.)</li>
+                    <li>bulk rigid plastic (crates, buckets, pails, furniture, large toys, large appliances, etc.)</li>
+                  </ul>
+
+
+                  <div class="card-header">
+                    <h2>Cartons</h2>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>Food and beverage cartons</li>
+                    <li>Drink boxes</li>
+                    <li>Aseptic packaging (holds beverages and food: juice, milk and non-dairy milk products, soup, etc.)</li>
+                  </ul>
+
+
+                  <div class="card-header">
+                    <h2>Papers</h2>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>newspapers, magazines, catalogs, phone books, mixed paper</li>
+                    <li>white and colored paper (lined, copier, computer; staples are ok)</li>
+                    <li>mail and envelopes (any color; window envelopes are ok)</li>
+                    <li>receipts</li>
+                    <li>paper bags (handles ok)</li>
+                    <li>wrapping paper</li>
+                    <li>soft-cover books (phone books, paperbacks, comics, etc.; no spiral bindings) (schools should follow their school  book recycling procedures)</li>
+                  </ul>
+
+                  <div class="card-header">
+                    <h2>Cardboard</h2>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>cardboard egg cartons</li>
+                    <li>cardboard trays</li>
+                    <li>smooth cardboard (food and shoe boxes, tubes, file folders, cardboard from product packaging)</li>
+                    <li>pizza boxes (remove and discard soiled liner; recycle little plastic supporter with rigid plastics)</li>
+                    <li>paper cups (waxy lining ok if cups are empty and clean; recycle plastic lids with rigid plastics)</li>
+                    <li>corrugated cardboard boxes (flattened and tied together with sturdy twine)</li>
+                  </ul>
+                </div>
+
+
+                <div class="card" style="margin:20px;">
+
+                  <div class="card-header">
+                    <h1>What Not to Recycle</h1>
+                  </div>
+
+                  <ul class="lorem" style="margin:20px;">
+                    <li>Paper with heavy wax or plastic coating (candy wrappers, take-out and freezer containers, etc.)</li>
+                    <li>Soiled or soft paper (napkins, paper towels, tissues)</li>
+                    <li>Hardcover books (schools should follow their school  book recycling procedures)</li>
+                    <li>Batteries</li>
+                    <li>Electronic devices banned from disposal</li>
+                    <li>Printer cartridges</li>
+                    <li>Glass items other than glass bottles and jars (such as mirrors, light bulbs, ceramics, and glassware)</li>
+                    <li>Window blinds</li>
+                    <li>Foam plastic items (such as foam food service containers, cups and trays, foam protective packing blocks, and, and foam packing peanuts)</li>
+                    <li>Flexible plastic items (such as single-serve food and drink squeezable pouches and tubes such as toothpaste, lotion, cosmetics, or sports balls such as basketballs, bowling balls, soccer balls, footballs, yoga balls)</li>
+                    <li>Film plastic (such as plastic shopping bags and wrappers.) Bring plastic bags and film to participating stores for recycling</li>
+                    <li>Cigarette lighters and butane gas lighters</li>
+                    <li>Cassette and VHS tapes</li>
+                    <li>CDs and DVDs</li>
+                    <li>Pens and markers</li>
+                    <li>“Tanglers” (such as cables, wires, cords, hoses)</li>
+                    <li>Rigid plastic containers containing medical “sharps” or disposable razors</li>
+                    <li>Containers that held dangerous or corrosive chemicals</li>
+                  </ul>
+
+                </div>
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                      New York City Department of Sanitation</a></p>
+                  </div>
+                </div>
+
+
+
 
             </div>
 
             <div class="sidebar-pane" id="textile">
                 <h1 class="sidebar-header">Textile Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
-                  <p class="lorem">New Yorkers throw out 200,000 tons of clothing and textiles every year. Instead of throwing your textiles away,
-                    donate or recycle them, which helps keep New York clean and fashionable.</p>
+                <div class="alert alert-success" style="margin:20px;">
+                  <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                  <p><i class="fas fa-exclamation-triangle"></i> <strong>New Yorkers throw out 200,000 tons of clothing
+                    and textiles every year. Instead of throwing your textiles away,
+                    donate or recycle them, which helps keep New York clean and fashionable.</strong></p>
+                </div>
 
-                  <h2>Accepted Items</h1>
-                  <p class="lorem"><i class="fas fa-exclamation-triangle"></i>Certain drop-offs only accept specific items or their own branded
-                    merchandise. Call ahead to ensure your materials will be accepted.</p>
-                  <ul class="lorem">
-                    <li>Clothing</li>
-                    <li>Shoes</li>
-                    <li>Coats</li>
-                    <li>Accessories (scarves, purses, etc.)</li>
-                    <li>Bedding</li>
-                    <li>Linens and Curtains</li>
-                    <li>Towels</li>
-                    <li>Rugs</li>
-                  </ul>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Settings</h4>
+                  </div>
 
-                  <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
-                    New York City Department of Sanitation</a></p>
+                  <div class="card-body">
+
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            Locations Near Me
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">0-5 Miles</a>
+                            <a class="dropdown-item" href="#">5-10 Miles</a>
+                            <a class="dropdown-item" href="#">10-20 Miles</a>
+                            <a class="dropdown-item" href="#">20+ Miles</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="p-2">
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                  <div class="card" style="margin:20px;">
+
+                    <div class="card-header">
+                      <h1>Accepted Items</h1>
+                    </div>
+
+                    <div class="alert alert-warning alert-dismissible fade show">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <p><i class="fas fa-exclamation-triangle"></i> <strong>Certain drop-offs only accept specific items or their own branded
+                        merchandise. Call ahead to ensure your materials will be accepted.</strong></p>
+                    </div>
+
+                    <ul class="lorem" style="margin:20px;">
+                      <li>Clothing</li>
+                      <li>Shoes</li>
+                      <li>Coats</li>
+                      <li>Accessories (scarves, purses, etc.)</li>
+                      <li>Bedding</li>
+                      <li>Linens and Curtains</li>
+                      <li>Towels</li>
+                      <li>Rugs</li>
+                    </ul>
+
+                  </div>
+
+                  <div class="card" style="margin:20px;">
+                    <div class="card-header">
+                      <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                        New York City Department of Sanitation</a></p>
+                    </div>
+                  </div>
+
 
             </div>
 
             <div class="sidebar-pane" id="food">
                 <h1 class="sidebar-header">Food Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
-                <p class="lorem">Drop-off composting is one-way NYC residents can divert their food and yard waste from being
-                  sent to a landfill. Bring your food scraps to any one of the drop-off sites located below to make sure
-                  you are creating a resource (compost and clean energy) instead of creating waste.</p>
+                <div class="alert alert-success" style="margin:20px;">
+                  <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                  <p><i class="fas fa-exclamation-triangle"></i> <strong>Drop-off composting is one-way NYC residents can divert their food and yard waste from being
+                    sent to a landfill. Bring your food scraps to any one of the drop-off sites located below to make sure
+                    you are creating a resource (compost and clean energy) instead of creating waste.</strong></p>
+                </div>
 
-                <h2>Accepted Items (All Sites)</h1>
-                <ul class="lorem">
-                  <li>Fruits, Vegetables and Eggshells</li>
-                  <li>Coffee, Tea and Nuts</li>
-                  <li>Dried Flowers and Houseplants</li>
-                </ul>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Settings</h4>
+                  </div>
 
-                <h2>Accepted Items (Some Sites)</h1>
-                <ul class="lorem">
-                  <li>Rice, Pasta, Bread, and Grains</li>
-                  <li>Meat, Fish, and Dairy</li>
-                  <li>BPI-certified compostable plastic products</li>
-                </ul>
+                  <div class="card-body">
 
-                <h2>Not Accepted</h1>
-                <ul class="lorem">
-                  <li>Pet Waste and Kitty Litter</li>
-                  <li>Pressure-treated Plywood, Lumber, or Sawdust</li>
-                  <li>Clean Paper, Glossy Paper, or Cardboard</li>
-                  <li>Metal, Glass or Plastic</li>
-                  <li>Medical Waste, Diapers, and Personal Hygiene Products</li>
-                </ul>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            Locations Near Me
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">0-5 Miles</a>
+                            <a class="dropdown-item" href="#">5-10 Miles</a>
+                            <a class="dropdown-item" href="#">10-20 Miles</a>
+                            <a class="dropdown-item" href="#">20+ Miles</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="p-2">
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h2>Accepted Items (All Sites)</h1>
+                  </div>
+                  <ul class="lorem" style="margin:20px;">
+                    <li>Fruits, Vegetables and Eggshells</li>
+                    <li>Coffee, Tea and Nuts</li>
+                    <li>Dried Flowers and Houseplants</li>
+                  </ul>
+                </div>
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h2>Accepted Items (Some Sites)</h1>
+                  </div>
+                  <ul class="lorem" style="margin:20px;">
+                    <li>Rice, Pasta, Bread, and Grains</li>
+                    <li>Meat, Fish, and Dairy</li>
+                    <li>BPI-certified compostable plastic products</li>
+                  </ul>
+                </div>
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h2>Not Accepted</h1>
+                  </div>
+                  <ul class="lorem" style="margin:20px;">
+                    <li>Pet Waste and Kitty Litter</li>
+                    <li>Pressure-treated Plywood, Lumber, or Sawdust</li>
+                    <li>Clean Paper, Glossy Paper, or Cardboard</li>
+                    <li>Metal, Glass or Plastic</li>
+                    <li>Medical Waste, Diapers, and Personal Hygiene Products</li>
+                  </ul>
+                </div>
 
 
-                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
-                  New York City Department of Sanitation</a></p>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                      New York City Department of Sanitation</a></p>
+                  </div>
+                </div>
 
             </div>
 
             <div class="sidebar-pane" id="leaf">
                 <h1 class="sidebar-header">Leaf Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
-                <p class="lorem">Leaves can be turned into compost to revitalize our soil.</p>
+                <div class="alert alert-success" style="margin:20px;">
+                  <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                  <p><i class="fas fa-exclamation-triangle"></i> <strong>Leaves can be turned into compost to revitalize our soil.</strong></p>
+                </div>
 
-                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
-                  New York City Department of Sanitation</a></p>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Settings</h4>
+                  </div>
+
+                  <div class="card-body">
+
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <div class="dropdown">
+                          <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                            Locations Near Me
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">0-5 Miles</a>
+                            <a class="dropdown-item" href="#">5-10 Miles</a>
+                            <a class="dropdown-item" href="#">10-20 Miles</a>
+                            <a class="dropdown-item" href="#">20+ Miles</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="p-2">
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                      New York City Department of Sanitation</a></p>
+                  </div>
+                </div>
 
             </div>
 
             <div class="sidebar-pane" id="electronics">
                 <h1 class="sidebar-header">Electronics Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
-                <p class="lorem">It’s illegal to include electronic devices with trash or recycling. Instead,
-                  our programs help you dispose of them legally and safely.</p>
+                  <div class="alert alert-danger alert-dismissible fade show" style="margin:20px;">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>It’s illegal to include electronic devices with trash or recycling.</strong></p>
+                  </div>
 
-                <p class="lorem"><i class="fas fa-exclamation-triangle"></i>Under New York State law, disposing of the below
-                  items with recyclables or trash is subject to a $100 fine.</p>
+                  <div class="card" style="margin:20px;">
+                    <div class="card-header">
+                      <h4>Settings</h4>
+                    </div>
 
-                <ul class="lorem">
-                  <li>Televisions (including cathode ray tubes)</li>
-                  <li>Computer peripherals, including any permanently attached cable or wiring</li>
-                  <li>Monitors, laptops</li>
-                  <li>Electronic keyboards</li>
-                  <li>Electronic mice and other pointing devices</li>
-                  <li>Fax machines, document scanners, and printers that are meant for use with a computer
-                    and weigh less than 100 lbs.</li>
-                  <li>TV peripherals, including any permanently attached cable or wiring</li>
-                  <li>VCRs</li>
-                  <li>Digital video recorders</li>
-                  <li>DVD players</li>
-                  <li>Digital converter boxes</li>
-                  <li>Cable or satellite receivers</li>
-                  <li>Electronic or video game consoles</li>
-                  <li>Small-scale servers</li>
-                  <li>Portable devices, including any permanently attached cable or wiring</li>
-                  <li>Portable digital music players</li>
-                </ul>
+                    <div class="card-body">
 
-                <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
-                  New York City Department of Sanitation</a></p>
+                      <div class="d-flex flex-row">
+                        <div class="p-2">
+                          <div class="dropdown">
+                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                              Locations Near Me
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">0-5 Miles</a>
+                              <a class="dropdown-item" href="#">5-10 Miles</a>
+                              <a class="dropdown-item" href="#">10-20 Miles</a>
+                              <a class="dropdown-item" href="#">20+ Miles</a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="p-2">
+
+                          <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                          </div>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                <div class="card" style="margin:20px;">
+
+                  <div class="card-header">
+                    <h2>Accepted Items</h1>
+                  </div>
+
+                  <div class="alert alert-warning alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Under New York State law, disposing of the below
+                      items with recyclables or trash is subject to a $100 fine.</strong></p>
+                  </div>
+
+                    <ul class="lorem" style="margin:20px;">
+                      <li>Televisions (including cathode ray tubes)</li>
+                      <li>Computer peripherals, including any permanently attached cable or wiring</li>
+                      <li>Monitors, laptops</li>
+                      <li>Electronic keyboards</li>
+                      <li>Electronic mice and other pointing devices</li>
+                      <li>Fax machines, document scanners, and printers that are meant for use with a computer
+                        and weigh less than 100 lbs.</li>
+                      <li>TV peripherals, including any permanently attached cable or wiring</li>
+                      <li>VCRs</li>
+                      <li>Digital video recorders</li>
+                      <li>DVD players</li>
+                      <li>Digital converter boxes</li>
+                      <li>Cable or satellite receivers</li>
+                      <li>Electronic or video game consoles</li>
+                      <li>Small-scale servers</li>
+                      <li>Portable devices, including any permanently attached cable or wiring</li>
+                      <li>Portable digital music players</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <p>Information Courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                      New York City Department of Sanitation</a></p>
+                  </div>
+                </div>
 
             </div>
 
-            <div class="sidebar-pane" id="settings">
-                <h1 class="sidebar-header">Settings<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+            <div class="sidebar-pane" id="help">
+                <h1 class="sidebar-header">Tutorial<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
             </div>
         </div>
     </div>
@@ -321,10 +622,6 @@
 
     <!-- Pop Up Introduction -->
     <div class="container">
-      <h2>Small Modal</h2>
-      <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
-
       <!-- Pop Up Tutorial: https://www.w3schools.com/bootstrap4/bootstrap_modal.asp -->
       <div class="modal fade" id="intro" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
@@ -354,7 +651,7 @@
 
   <div id="map" class="sidebar-map"></div>
 
-    <script src="features.js?v=2"></script>
+    <script src="features.js?v=4"></script>
     <script src="leaflet-sidebar.js"></script>
 
      <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>, Data by <a href="https://opendata.cityofnewyork.us">NYC OpenData</a></p>

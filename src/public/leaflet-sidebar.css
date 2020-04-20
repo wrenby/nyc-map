@@ -116,7 +116,7 @@
     .sidebar-pane {
       min-width: 420px; } }
 
-.sidebar-header {
+/* .sidebar-header {
   margin: -10px -20px 0;
   height: 40px;
   padding: 0 20px;
@@ -125,7 +125,7 @@
   color: #fff;
   background-color: #0074d9; }
   .sidebar-right .sidebar-header {
-    padding-left: 40px; }
+    padding-left: 40px; } */
 
 .sidebar-close {
   position: absolute;
