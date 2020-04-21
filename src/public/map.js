@@ -116,8 +116,12 @@ L.control.guide = function (options) {
 let guide = L.control.guide().addTo(map);
 
 // Layer visibility controlled through the sidebar now
-let activeLayer = null;
+let activeLayer = null; // ugly name
+let tmpLayer = null; // actual layer
 function selectLayer(ugly) {
+    if (tmpLayer) {
+        map.removeLayer(tmpLayer);
+    }
     if (activeLayer != ugly) {
         if (activeLayer) {
             map.removeLayer(layers.get(activeLayer));
@@ -167,7 +171,8 @@ $('input[type="search"]').keyup(function(e) {
         let pretty = datasets.get(activeLayer);
 
         $.getJSON(`data/${activeLayer}.geojson`, function(json) {
-            L.geoJSON(json, {
+            let markerCount = 0;
+            tmpLayer = L.geoJSON(json, {
                 pointToLayer: function(feature, latlng) {
                     // TODO: would be nice if we had bounding boxes in addition to lat/lng... probably possible to get with OSM API, but not a priority
                     if (feature.geometry.type == "Point") {
@@ -180,12 +185,22 @@ $('input[type="search"]').keyup(function(e) {
                 filter: function(feature, _layer) {
                     let matchesAll = true;
                     for (let word of keywords) {
-                        if (!feature.properties.name.toLowerCase().includes(word.toLowerCase()))
+                        if (!feature.properties.name.toLowerCase().includes(word.toLowerCase())) {
                             matchesAll = false;
+                            break;
+                        }
                     }
+                    if (matchesAll) markerCount++;
                     return matchesAll;
                 }
             }).addTo(map);
+
+            if (markerCount == 1) {
+                map.setZoom(map.getMaxZoom());
+                map.setView(tmpLayer.getBounds().getCenter());
+            } else if (markerCount > 1) {
+                map.fitBounds(tmpLayer.getBounds());
+            }
         });
 
         activeLayer = null;
