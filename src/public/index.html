@@ -69,9 +69,10 @@
           font-size: 15px;
         }
 
-        .logo {
+        /* .logo {
           padding: 10px;
-        }
+          margin: 20px;
+        } */
 
         .lorem {
             font-style: italic;
@@ -120,19 +121,43 @@
         <div class="sidebar-content">
             <div class="sidebar-pane" id="home">
                 <h1 class="sidebar-header">
-                    GreenMap [WT]
+                    EcoMap
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
 
-                <p>A simple tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
 
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>About</h4>
+                  </div>
+                  <div class="card-body">
+                    <p>A tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
+                  </div>
+                </div>
 
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Data</h4>
+                  </div>
+                  <div class="card-body">
+                    <p>All guide data and locations are courtesy of the <a href="https://www1.nyc.gov/assets/dsny/site/services/recycling/what-to-recycle">
+                      New York City Department of Sanitation</a> and free public data made
+                      available by <a href="https://opendata.cityofnewyork.us/">NYC OpenData.</a></p>
+                        <img id="logo" src="DSNY_logo_2016.jpg" class="mx-auto d-block" style="width:50%;margin:20px;">
+                        <img id="logo" src="nyc-open-data-logo.svg" class="mx-auto d-block" style="width:50%;margin:20px;">
+                  </div>
+                </div>
 
-                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Learn More</h4>
+                  </div>
+                  <div class="card-body">
+                    To learn more about how you can keep NYC clean and safe, visit the <a href="https://www1.nyc.gov/assets/dsny/site/home">DSNY website</a>.
+                  </div>
+                </div>
+
             </div>
 
             <div class="sidebar-pane" id="bins">
@@ -618,6 +643,26 @@
 
             <div class="sidebar-pane" id="help">
                 <h1 class="sidebar-header">Tutorial<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+
+                <div class="card" style="margin:20px;">
+                  <div class="card-header">
+                    <h4>Logo Dictionary</h4>
+                  </div>
+                  <div class="card-body">
+                      <p><i class="fa fa-recycle"></i><strong>Public Recycling Bins</strong></p>
+                      <p><i class="fas fa-tshirt"></i><strong>Textiles</strong></p>
+                      <p><i class="fas fa-drumstick-bite"></i><strong>Food Waste</strong></p>
+                      <p><i class="fa fa-leaf"></i> <strong>Yard Waste</strong></p>
+                      <p><i class="fa fa-microchip"></i> <strong>Electronics</strong></p>
+                  </div>
+
+                  <div class="card-footer">
+                    <p>Use the logos located along the sidebar to generate markers for
+                        drop-off locations.</p>
+                  </div>
+
+                </div>
+
             </div>
         </div>
     </div>
@@ -630,21 +675,17 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title">Introduction</h1>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h2 class="modal-title">What is EcoMap?</h2>
+              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
             </div>
             <div class="modal-body">
-              <h4>What is GreenMap?</h4>
-              <p>The goal of this geographical visualization is to give working adults
-                living in, or around, the New York City Metropolitan Area a way to increase
-                their environmental awareness by providing a simple and intuitive tool which
-                allows users to locate recycling bins, composting and drop-off sites, and
+              <p>EcoMap is a simple tool that allows users to locate recycling bins, composting and drop-off sites, and
                 eco-friendly retailers in their area from data provided by the New York City
                 Department of Sanitation.</p>
                 <img id="logo" src="DSNY_logo_2016.jpg" class="mx-auto d-block" style="width:30%">
             </div>
             <div class="modal-footer">
-              <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+              <button type="button" class="btn btn-default" data-dismiss="modal">Get Started</button>
             </div>
           </div>
         </div>
@@ -654,7 +695,7 @@
 
   <div id="map" class="sidebar-map"></div>
 
-    <script src="features.js?v=4"></script>
+    <script src="features.js?v=6"></script>
     <script src="leaflet-sidebar.js"></script>
 
      <p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>, Data by <a href="https://opendata.cityofnewyork.us">NYC OpenData</a></p>
