@@ -2,7 +2,7 @@ High Priority
 ---
 
 Some kind of proximity search
- - "Go to borough" feature
+ - "Go to borough" feature: even if it's not very useful it could help performance
  - Browser geolocation access? Probably a bootstrap icon for this but not sure how to integrate it into the UI
  - Proximity is probably more important than borough
 
@@ -17,7 +17,7 @@ Filtering layers feels unresponsive
  - Panes are supposed to solve this problem but I can't get them working
    - Even if I could, it might make map navigation less responsive in turn
    - And I'd have to give up marker shadows https://github.com/Leaflet/Leaflet/issues/4#issuecomment-358930860
- - One layer, asynchronously recraeted from file? https://github.com/calvinmetcalf/leaflet-ajax
+ - One layer, asynchronously recreated from file? https://github.com/calvinmetcalf/leaflet-ajax
 
 
 Low Priority

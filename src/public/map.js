@@ -132,3 +132,62 @@ for (const ugly of datasets.keys()) {
         selectLayer(ugly);
     });
 }
+
+// Proximity search using geolocation API
+function userCoords() {
+    function success(position) {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+    }
+
+    if (!navigator.geolocation) {
+        $('.geo-error').text("Geolocation is not supported by your browser");
+        // TODO: enter address by text
+    } else {
+        $('.geo-error').text("Locating…");
+    }
+
+}
+
+$('.geo-bins, .geo-textile, .geo-food, .geo-leaves, .geo-electronics').each(() => {
+    $(this).click(() => {
+        // TODO: call userCoords, filter by radius, and zoom to that bounding box
+        // NOTE: there is a leaflet function that zooms to the bounding box of all markers
+        // Use this and then clamp the zoom
+    });
+});
+
+// Keyword search
+$('input[type="search"]').keyup(function(e) {
+    if (e.keyCode == 13) { //enter key
+        // ! this technique breaks the map
+        map.removeLayer(layers.get(activeLayer));
+
+        let keywords = $(this).val().split(" ");
+        let pretty = datasets.get(activeLayer);
+
+        $.getJSON(`data/${activeLayer}.geojson`, function(json) {
+            L.geoJSON(json, {
+                pointToLayer: function(feature, latlng) {
+                    // TODO: would be nice if we had bounding boxes in addition to lat/lng... probably possible to get with OSM API, but not a priority
+                    if (feature.geometry.type == "Point") {
+                        return L.marker(latlng, {icon: marker});
+                    } else {
+                        console.error(`ERROR: unsupported feature geometry ${feature.geometry.type} on item ${feature.properties}`);
+                    }
+                },
+                onEachFeature: onEachFeature.bindArgs(pretty),
+                filter: function(feature, _layer) {
+                    let matchesAll = true;
+                    for (let word of keywords) {
+                        if (!feature.properties.name.toLowerCase().includes(word.toLowerCase()))
+                            matchesAll = false;
+                    }
+                    return matchesAll;
+                }
+            }).addTo(map);
+        });
+
+        activeLayer = null;
+    }
+});

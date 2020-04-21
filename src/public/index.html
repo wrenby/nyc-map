@@ -23,16 +23,19 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous">
+    crossorigin="anonymous" />
     <!-- TODO: SRI -->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     <!-- leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="anonymous"/>
+    crossorigin="anonymous" />
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"
+    integrity="sha256-WL6HHfYfbFEkZOFdsJQeY7lJG/E5airjvqbznghUzRw="
     crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css" />
@@ -154,10 +157,10 @@
                             Bins Near Me
                           </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">0-5 Miles</a>
-                            <a class="dropdown-item" href="#">5-10 Miles</a>
-                            <a class="dropdown-item" href="#">10-20 Miles</a>
-                            <a class="dropdown-item" href="#">20+ Miles</a>
+                            <a class="dropdown-item geo-bins" href="#0-5">0-5 Miles</a>
+                            <a class="dropdown-item geo-bins" href="#5-10">5-10 Miles</a>
+                            <a class="dropdown-item geo-bins" href="#10-20">10-20 Miles</a>
+                            <a class="dropdown-item geo-bins" href="#20+">20+ Miles</a>
                           </div>
                         </div>
                       </div>
@@ -165,7 +168,7 @@
                       <div class="p-2">
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search Bins" id="#">
+                          <input type="search" class="form-control" placeholder="Search Bins" id="#keyword-bins">
                         </div>
 
                       </div>
@@ -329,10 +332,10 @@
                             Locations Near Me
                           </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">0-5 Miles</a>
-                            <a class="dropdown-item" href="#">5-10 Miles</a>
-                            <a class="dropdown-item" href="#">10-20 Miles</a>
-                            <a class="dropdown-item" href="#">20+ Miles</a>
+                            <a class="dropdown-item geo-textile" href="#0-5">0-5 Miles</a>
+                            <a class="dropdown-item geo-textile" href="#5-10">5-10 Miles</a>
+                            <a class="dropdown-item geo-textile" href="#10-20">10-20 Miles</a>
+                            <a class="dropdown-item geo-textile" href="#20+">20+ Miles</a>
                           </div>
                         </div>
                       </div>
@@ -340,7 +343,7 @@
                       <div class="p-2">
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                          <input type="search" class="form-control" placeholder="Search Locations" id="#keyword-textiles">
                         </div>
 
                       </div>
@@ -409,10 +412,10 @@
                             Locations Near Me
                           </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">0-5 Miles</a>
-                            <a class="dropdown-item" href="#">5-10 Miles</a>
-                            <a class="dropdown-item" href="#">10-20 Miles</a>
-                            <a class="dropdown-item" href="#">20+ Miles</a>
+                            <a class="dropdown-item geo-food" href="#0-5">0-5 Miles</a>
+                            <a class="dropdown-item geo-food" href="#5-10">5-10 Miles</a>
+                            <a class="dropdown-item geo-food" href="#10-20">10-20 Miles</a>
+                            <a class="dropdown-item geo-food" href="#20+">20+ Miles</a>
                           </div>
                         </div>
                       </div>
@@ -420,7 +423,7 @@
                       <div class="p-2">
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                          <input type="search" class="form-control" placeholder="Search Locations" id="#keyword-food">
                         </div>
 
                       </div>
@@ -497,10 +500,10 @@
                             Locations Near Me
                           </button>
                           <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">0-5 Miles</a>
-                            <a class="dropdown-item" href="#">5-10 Miles</a>
-                            <a class="dropdown-item" href="#">10-20 Miles</a>
-                            <a class="dropdown-item" href="#">20+ Miles</a>
+                            <a class="dropdown-item geo-leaves" href="#0-5">0-5 Miles</a>
+                            <a class="dropdown-item geo-leaves" href="#5-10">5-10 Miles</a>
+                            <a class="dropdown-item geo-leaves" href="#10-20">10-20 Miles</a>
+                            <a class="dropdown-item geo-leaves" href="#20+">20+ Miles</a>
                           </div>
                         </div>
                       </div>
@@ -508,7 +511,7 @@
                       <div class="p-2">
 
                         <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                          <input type="search" class="form-control" placeholder="Search Locations" id="#keyword-leaves">
                         </div>
 
                       </div>
@@ -550,10 +553,10 @@
                               Locations Near Me
                             </button>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="#">0-5 Miles</a>
-                              <a class="dropdown-item" href="#">5-10 Miles</a>
-                              <a class="dropdown-item" href="#">10-20 Miles</a>
-                              <a class="dropdown-item" href="#">20+ Miles</a>
+                              <a class="dropdown-item geo-electronics" href="#">0-5 Miles</a>
+                              <a class="dropdown-item geo-electronics" href="#">5-10 Miles</a>
+                              <a class="dropdown-item geo-electronics" href="#">10-20 Miles</a>
+                              <a class="dropdown-item geo-electronics" href="#">20+ Miles</a>
                             </div>
                           </div>
                         </div>
@@ -561,7 +564,7 @@
                         <div class="p-2">
 
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search Locations" id="#">
+                            <input type="search" class="form-control" placeholder="Search Locations" id="#keyword-electronics">
                           </div>
 
                         </div>
