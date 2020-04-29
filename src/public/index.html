@@ -51,10 +51,15 @@
 
         h4, p {
           padding: 5px;
+          line-height: 1.5;
         }
 
         h1, h2 {
           padding: 10px;
+        }
+
+        li {
+          line-height: 2;
         }
 
         .dropdown-menu {
@@ -129,7 +134,7 @@
                     <h4>About</h4>
                   </div>
                   <div class="card-body">
-                    <p>A tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
+                    <p>A geographical tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
                   </div>
                 </div>
 
@@ -554,11 +559,13 @@
             </div>
 
             <div class="sidebar-pane" id="electronics">
-                <h1 class="sidebar-header">Electronics Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header" style="color:black">Electronics Drop-Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                   <div class="alert alert-danger alert-dismissible fade show" style="margin:20px;">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <p><i class="fas fa-exclamation-triangle"></i> <strong>It’s illegal to include electronic devices with trash or recycling.</strong></p>
+                    <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                    <p><i class="fas fa-exclamation-triangle" style="position:relative;"></i><strong>It is illegal
+                    to throw away electronic devices with your trash or recycling. It could result in a
+                    $100 fine!</strong></p>
                   </div>
 
                   <div class="card" style="margin:20px;">
@@ -599,24 +606,18 @@
                 <div class="card" style="margin:20px;">
 
                   <div class="card-header">
-                    <h2>Accepted Items</h1>
+                    <h2>Accepted Electronics</h1>
                   </div>
 
-                  <div class="alert alert-warning alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Under New York State law, disposing of the below
-                      items with recyclables or trash is subject to a $100 fine.</strong></p>
-                  </div>
-
-                    <ul class="lorem" style="margin:20px;">
+                    <ul style="margin:20px;">
                       <li>Televisions (including cathode ray tubes)</li>
-                      <li>Computer peripherals, including any permanently attached cable or wiring</li>
+                      <li>Computer peripherals (including any permanently attached cable or wiring)</li>
                       <li>Monitors, laptops</li>
                       <li>Electronic keyboards</li>
-                      <li>Electronic mice and other pointing devices</li>
+                      <li>Electronic mice (including other pointing devices)</li>
                       <li>Fax machines, document scanners, and printers that are meant for use with a computer
                         and weigh less than 100 lbs.</li>
-                      <li>TV peripherals, including any permanently attached cable or wiring</li>
+                      <li>TV peripherals (including any permanently attached cable or wiring)</li>
                       <li>VCRs</li>
                       <li>Digital video recorders</li>
                       <li>DVD players</li>
@@ -624,7 +625,7 @@
                       <li>Cable or satellite receivers</li>
                       <li>Electronic or video game consoles</li>
                       <li>Small-scale servers</li>
-                      <li>Portable devices, including any permanently attached cable or wiring</li>
+                      <li>Portable devices (including any permanently attached cable or wiring)</li>
                       <li>Portable digital music players</li>
                     </ul>
                 </div>
@@ -654,7 +655,7 @@
                   </div>
 
                   <div class="card-footer">
-                    <p>Use the logos located along the sidebar to generate markers for
+                    <p>Use the logos located along the sidebar to generate map markers for
                         drop-off locations.</p>
                   </div>
 
