@@ -54,10 +54,15 @@
 
         h4, p {
           padding: 5px;
+          line-height: 1.5;
         }
 
         h1, h2 {
           padding: 10px;
+        }
+
+        li {
+          line-height: 2;
         }
 
         .dropdown-menu {
@@ -104,7 +109,7 @@
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
-                <li><a href="#home" id="home" role="tab" data-toggle="tooltip" data-placement="right" title="Menu"><i class="fa fa-bars"></i></a></li>
+                <li><a href="#home" id="home" role="tab" data-toggle="tooltip" data-placement="right" title="Home"><i class="fa fa-bars"></i></a></li>
                 <li><a href="#bins" id="bins" role="tab" data-toggle="tooltip" data-placement="right" title="Public Recycling Bins"><i class="fa fa-recycle"></i></a></li>
                 <li><a href="#textile" id="textile" role="tab" data-toggle="tooltip" data-placement="right" title="Textiles"><i class="fas fa-tshirt"></i></a></li>
                 <li><a href="#food" id="food" role="tab" data-toggle="tooltip" data-placement="right" title="Food Scraps and Waste"><i class="fas fa-drumstick-bite"></i></a></li>
@@ -120,8 +125,8 @@
         <!-- Tab panes -->
         <div class="sidebar-content">
             <div class="sidebar-pane" id="home">
-                <h1 class="sidebar-header">
-                    EcoMap
+                <h1 class="sidebar-header" style="color:black">
+                    Home
                     <span class="sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
 
@@ -132,7 +137,7 @@
                     <h4>About</h4>
                   </div>
                   <div class="card-body">
-                    <p>A tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
+                    <p>A geographical tool to improve environmental awareness for busy adults in the New York City Metro Area.</p>
                   </div>
                 </div>
 
@@ -161,11 +166,12 @@
             </div>
 
             <div class="sidebar-pane" id="bins">
-                <h1 class="sidebar-header">Public Recycling Bins<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header" style="color:black">Public Recycling Bins<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                 <div class="alert alert-warning alert-dismissible fade show" style="margin:20px;">
-                  <button type="button" class="close" data-dismiss="alert">&times;</button>
-                  <p><i class="fas fa-exclamation-triangle"></i> <strong>Please empty and rinse metal, glass, plastic and cartons containing food before recycling.</strong></p>
+                  <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                  <p><i class="fas fa-exclamation"></i> <strong>All metal, glass, plastic and cartons
+                    with food inside must be cleaned before recycling.</strong></p>
                 </div>
 
                 <div class="card" style="margin:20px;">
@@ -206,15 +212,15 @@
 
                 <div class="card" style="margin:20px;">
                   <div class="card-header">
-                    <h1>What to Recycle</h1>
+                    <h3>What to Recycle</h3>
                   </div>
 
 
                   <div class="card-header">
-                    <h2>Metal</h2>
+                    <h4>Metal</h4>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>metal cans (soup, pet food, empty aerosol cans, empty paint cans, etc.)</li>
                     <li>aluminum foil and foil products (wrap and trays)</li>
                     <li>metal caps and lids</li>
@@ -223,26 +229,25 @@
                   </ul>
 
                   <div class="card-header">
-                    <h2>Glass</h2>
+                    <h4>Glass</h4>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>glass bottles and jars</li>
                   </ul>
 
 
 
                   <div class="card-header">
-                    <h2>Plastic (rigid plastics)</h2>
+                    <h4>Plastic (rigid plastics)</h4>
                   </div>
 
                   <div class="alert alert-warning alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Rigid plastic is any item that is mostly
-                      plastic resin—it is relatively inflexible and maintains its shape or form when bent.</strong></p>
+                    <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Rigid plastic is hard to bend plastic material.</strong></p>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>plastic bottles, jugs, and jars</li>
                     <li>rigid plastic caps and lids</li>
                     <li>rigid plastic food containers (yogurt, deli, hummus, dairy tubs, cookie tray inserts, “clamshell” containers, other rigid plastic take-out containers)</li>
@@ -253,10 +258,10 @@
 
 
                   <div class="card-header">
-                    <h2>Cartons</h2>
+                    <h4>Cartons</h4>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>Food and beverage cartons</li>
                     <li>Drink boxes</li>
                     <li>Aseptic packaging (holds beverages and food: juice, milk and non-dairy milk products, soup, etc.)</li>
@@ -264,10 +269,10 @@
 
 
                   <div class="card-header">
-                    <h2>Papers</h2>
+                    <h4>Papers</h4>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>newspapers, magazines, catalogs, phone books, mixed paper</li>
                     <li>white and colored paper (lined, copier, computer; staples are ok)</li>
                     <li>mail and envelopes (any color; window envelopes are ok)</li>
@@ -278,10 +283,10 @@
                   </ul>
 
                   <div class="card-header">
-                    <h2>Cardboard</h2>
+                    <h4>Cardboard</h4>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>cardboard egg cartons</li>
                     <li>cardboard trays</li>
                     <li>smooth cardboard (food and shoe boxes, tubes, file folders, cardboard from product packaging)</li>
@@ -295,10 +300,10 @@
                 <div class="card" style="margin:20px;">
 
                   <div class="card-header">
-                    <h1>What Not to Recycle</h1>
+                    <h4>What Not to Recycle</h4>
                   </div>
 
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>Paper with heavy wax or plastic coating (candy wrappers, take-out and freezer containers, etc.)</li>
                     <li>Soiled or soft paper (napkins, paper towels, tissues)</li>
                     <li>Hardcover books (schools should follow their school  book recycling procedures)</li>
@@ -334,13 +339,12 @@
             </div>
 
             <div class="sidebar-pane" id="textile">
-                <h1 class="sidebar-header">Textile Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header" style="color:black;">Textile Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                 <div class="alert alert-success" style="margin:20px;">
                   <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-                  <p><i class="fas fa-exclamation-triangle"></i> <strong>New Yorkers throw out 200,000 tons of clothing
-                    and textiles every year. Instead of throwing your textiles away,
-                    donate or recycle them, which helps keep New York clean and fashionable.</strong></p>
+                  <p><i class="fas fa-exclamation"></i><strong>Did you know? New Yorkers throw out 200,000 tons of clothing
+                    every year!</strong></p>
                 </div>
 
                 <div class="card" style="margin:20px;">
@@ -381,16 +385,16 @@
                   <div class="card" style="margin:20px;">
 
                     <div class="card-header">
-                      <h1>Accepted Items</h1>
+                      <h4>Accepted Items</h4>
                     </div>
 
                     <div class="alert alert-warning alert-dismissible fade show">
-                      <button type="button" class="close" data-dismiss="alert">&times;</button>
-                      <p><i class="fas fa-exclamation-triangle"></i> <strong>Certain drop-offs only accept specific items or their own branded
-                        merchandise. Call ahead to ensure your materials will be accepted.</strong></p>
+                      <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                      <p><i class="fas fa-exclamation-triangle"></i> <strong>Some drop-offs only accept certain items.
+                        Call ahead to make sure your clothes will be accepted.</strong></p>
                     </div>
 
-                    <ul class="lorem" style="margin:20px;">
+                    <ul style="margin:20px;">
                       <li>Clothing</li>
                       <li>Shoes</li>
                       <li>Coats</li>
@@ -414,13 +418,12 @@
             </div>
 
             <div class="sidebar-pane" id="food">
-                <h1 class="sidebar-header">Food Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header" style="color:black">Food Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                 <div class="alert alert-success" style="margin:20px;">
                   <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-                  <p><i class="fas fa-exclamation-triangle"></i> <strong>Drop-off composting is one-way NYC residents can divert their food and yard waste from being
-                    sent to a landfill. Bring your food scraps to any one of the drop-off sites located below to make sure
-                    you are creating a resource (compost and clean energy) instead of creating waste.</strong></p>
+                  <p><i class="fas fa-exclamation"></i> <strong>Did you know? Dropping off your food and yard waste
+                    for composting is one-way you can keep waste from being sent to landfills.</strong></p>
                 </div>
 
                 <div class="card" style="margin:20px;">
@@ -460,20 +463,12 @@
 
                 <div class="card" style="margin:20px;">
                   <div class="card-header">
-                    <h2>Accepted Items (All Sites)</h1>
+                    <h4>Accepted</h4>
                   </div>
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>Fruits, Vegetables and Eggshells</li>
                     <li>Coffee, Tea and Nuts</li>
                     <li>Dried Flowers and Houseplants</li>
-                  </ul>
-                </div>
-
-                <div class="card" style="margin:20px;">
-                  <div class="card-header">
-                    <h2>Accepted Items (Some Sites)</h1>
-                  </div>
-                  <ul class="lorem" style="margin:20px;">
                     <li>Rice, Pasta, Bread, and Grains</li>
                     <li>Meat, Fish, and Dairy</li>
                     <li>BPI-certified compostable plastic products</li>
@@ -482,9 +477,9 @@
 
                 <div class="card" style="margin:20px;">
                   <div class="card-header">
-                    <h2>Not Accepted</h1>
+                    <h4>Not Accepted</h4>
                   </div>
-                  <ul class="lorem" style="margin:20px;">
+                  <ul style="margin:20px;">
                     <li>Pet Waste and Kitty Litter</li>
                     <li>Pressure-treated Plywood, Lumber, or Sawdust</li>
                     <li>Clean Paper, Glossy Paper, or Cardboard</li>
@@ -504,11 +499,11 @@
             </div>
 
             <div class="sidebar-pane" id="leaf">
-                <h1 class="sidebar-header">Leaf Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header" style="color:black">Leaf Drop-Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                 <div class="alert alert-success" style="margin:20px;">
                   <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
-                  <p><i class="fas fa-exclamation-triangle"></i> <strong>Leaves can be turned into compost to revitalize our soil.</strong></p>
+                  <p><i class="fas fa-exclamation"></i> <strong>Did you know? Leaves can be turned into compost to help your soil.</strong></p>
                 </div>
 
                 <div class="card" style="margin:20px;">
@@ -557,11 +552,13 @@
             </div>
 
             <div class="sidebar-pane" id="electronics">
-                <h1 class="sidebar-header">Electronics Drop Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header" style="color:black">Electronics Drop-Off<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                   <div class="alert alert-danger alert-dismissible fade show" style="margin:20px;">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <p><i class="fas fa-exclamation-triangle"></i> <strong>It’s illegal to include electronic devices with trash or recycling.</strong></p>
+                    <!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+                    <p><i class="fas fa-exclamation-triangle" style="position:relative;"></i><strong>It is illegal
+                    to throw away electronic devices with your trash or recycling. It could result in a
+                    $100 fine!</strong></p>
                   </div>
 
                   <div class="card" style="margin:20px;">
@@ -602,24 +599,18 @@
                 <div class="card" style="margin:20px;">
 
                   <div class="card-header">
-                    <h2>Accepted Items</h1>
+                    <h4>Accepted Electronics</h4>
                   </div>
 
-                  <div class="alert alert-warning alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Under New York State law, disposing of the below
-                      items with recyclables or trash is subject to a $100 fine.</strong></p>
-                  </div>
-
-                    <ul class="lorem" style="margin:20px;">
+                    <ul style="margin:20px;">
                       <li>Televisions (including cathode ray tubes)</li>
-                      <li>Computer peripherals, including any permanently attached cable or wiring</li>
+                      <li>Computer peripherals (including any permanently attached cable or wiring)</li>
                       <li>Monitors, laptops</li>
                       <li>Electronic keyboards</li>
-                      <li>Electronic mice and other pointing devices</li>
+                      <li>Electronic mice (including other pointing devices)</li>
                       <li>Fax machines, document scanners, and printers that are meant for use with a computer
                         and weigh less than 100 lbs.</li>
-                      <li>TV peripherals, including any permanently attached cable or wiring</li>
+                      <li>TV peripherals (including any permanently attached cable or wiring)</li>
                       <li>VCRs</li>
                       <li>Digital video recorders</li>
                       <li>DVD players</li>
@@ -627,7 +618,7 @@
                       <li>Cable or satellite receivers</li>
                       <li>Electronic or video game consoles</li>
                       <li>Small-scale servers</li>
-                      <li>Portable devices, including any permanently attached cable or wiring</li>
+                      <li>Portable devices (including any permanently attached cable or wiring)</li>
                       <li>Portable digital music players</li>
                     </ul>
                 </div>
@@ -642,7 +633,7 @@
             </div>
 
             <div class="sidebar-pane" id="help">
-                <h1 class="sidebar-header">Tutorial<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
+                <h1 class="sidebar-header">Help<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
 
                 <div class="card" style="margin:20px;">
                   <div class="card-header">
@@ -657,7 +648,7 @@
                   </div>
 
                   <div class="card-footer">
-                    <p>Use the logos located along the sidebar to generate markers for
+                    <p>Use the logos located along the sidebar to generate map markers for
                         drop-off locations.</p>
                   </div>
 
